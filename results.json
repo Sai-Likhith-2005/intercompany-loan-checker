@@ -1,0 +1,464 @@
+[
+  {
+    "id": "P1",
+    "description": "Boundary: exactly 130% of AFR, exactly 3y (short)",
+    "pass": true,
+    "got": [
+      "SAFE_HARBOR",
+      "OK"
+    ],
+    "expected": [
+      "SAFE_HARBOR",
+      "OK"
+    ],
+    "rate_status": "SAFE_HARBOR",
+    "rate_detail": "eff=0.053300 bucket=short AFR=0.0410 ratio=1.3000",
+    "covenant_status": "OK",
+    "covenant_detail": "leverage 2.50x, ICR 5.33x",
+    "audit": {
+      "text_sha256": "47a6609f9df109df",
+      "afr_table": "SYNTHETIC-2026-10",
+      "extracted": {
+        "currency": {
+          "value": "USD",
+          "quote": "principal amount of USD"
+        },
+        "fixed_rate": {
+          "value": "0.0533",
+          "quote": "fixed rate of 5.33% per annum"
+        },
+        "compounding": {
+          "value": "annually",
+          "quote": "compounded annually"
+        },
+        "term_years": {
+          "value": "3",
+          "quote": "term of 3 years"
+        },
+        "max_leverage": {
+          "value": "4.0",
+          "quote": "Total Debt to EBITDA ratio shall not exceed 4.0"
+        },
+        "min_icr": {
+          "value": "3.0",
+          "quote": "Interest Coverage Ratio shall not be less than 3.0"
+        }
+      }
+    }
+  },
+  {
+    "id": "P2",
+    "description": "Rate below band (3.00% vs 4.35% mid AFR)",
+    "pass": true,
+    "got": [
+      "BELOW_SAFE_HARBOR",
+      "OK"
+    ],
+    "expected": [
+      "BELOW_SAFE_HARBOR",
+      "OK"
+    ],
+    "rate_status": "BELOW_SAFE_HARBOR",
+    "rate_detail": "eff=0.030000 bucket=mid AFR=0.0435 ratio=0.6897",
+    "covenant_status": "OK",
+    "covenant_detail": "leverage 2.50x, ICR 5.33x",
+    "audit": {
+      "text_sha256": "55572020e4743abf",
+      "afr_table": "SYNTHETIC-2026-10",
+      "extracted": {
+        "currency": {
+          "value": "USD",
+          "quote": "principal amount of USD"
+        },
+        "fixed_rate": {
+          "value": "0.03",
+          "quote": "fixed rate of 3.00% per annum"
+        },
+        "compounding": {
+          "value": "annually",
+          "quote": "compounded annually"
+        },
+        "term_years": {
+          "value": "5",
+          "quote": "term of 5 years"
+        },
+        "max_leverage": {
+          "value": "4.0",
+          "quote": "Total Debt to EBITDA ratio shall not exceed 4.0"
+        },
+        "min_icr": {
+          "value": "3.0",
+          "quote": "Interest Coverage Ratio shall not be less than 3.0"
+        }
+      }
+    }
+  },
+  {
+    "id": "P3",
+    "description": "Rate above band -> benchmarking",
+    "pass": true,
+    "got": [
+      "ABOVE_BAND_BENCHMARK",
+      "OK"
+    ],
+    "expected": [
+      "ABOVE_BAND_BENCHMARK",
+      "OK"
+    ],
+    "rate_status": "ABOVE_BAND_BENCHMARK",
+    "rate_detail": "eff=0.065000 bucket=long AFR=0.0460 ratio=1.4130",
+    "covenant_status": "OK",
+    "covenant_detail": "leverage 2.50x, ICR 5.33x",
+    "audit": {
+      "text_sha256": "93ca1eaacf9ec014",
+      "afr_table": "SYNTHETIC-2026-10",
+      "extracted": {
+        "currency": {
+          "value": "USD",
+          "quote": "principal amount of USD"
+        },
+        "fixed_rate": {
+          "value": "0.065",
+          "quote": "fixed rate of 6.50% per annum"
+        },
+        "compounding": {
+          "value": "annually",
+          "quote": "compounded annually"
+        },
+        "term_years": {
+          "value": "10",
+          "quote": "term of 10 years"
+        },
+        "max_leverage": {
+          "value": "4.0",
+          "quote": "Total Debt to EBITDA ratio shall not exceed 4.0"
+        },
+        "min_icr": {
+          "value": "3.0",
+          "quote": "Interest Coverage Ratio shall not be less than 3.0"
+        }
+      }
+    }
+  },
+  {
+    "id": "P4",
+    "description": "Quarterly compounding lifts 4.05% nominal over AFR",
+    "pass": true,
+    "got": [
+      "SAFE_HARBOR",
+      "OK"
+    ],
+    "expected": [
+      "SAFE_HARBOR",
+      "OK"
+    ],
+    "rate_status": "SAFE_HARBOR",
+    "rate_detail": "eff=0.041119 bucket=short AFR=0.0410 ratio=1.0029",
+    "covenant_status": "OK",
+    "covenant_detail": "leverage 2.50x, ICR 5.33x",
+    "audit": {
+      "text_sha256": "8e643e6ad9bbac24",
+      "afr_table": "SYNTHETIC-2026-10",
+      "extracted": {
+        "currency": {
+          "value": "USD",
+          "quote": "principal amount of USD"
+        },
+        "fixed_rate": {
+          "value": "0.0405",
+          "quote": "fixed rate of 4.05% per annum"
+        },
+        "compounding": {
+          "value": "quarterly",
+          "quote": "compounded quarterly"
+        },
+        "term_years": {
+          "value": "3",
+          "quote": "term of 3 years"
+        },
+        "max_leverage": {
+          "value": "4.0",
+          "quote": "Total Debt to EBITDA ratio shall not exceed 4.0"
+        },
+        "min_icr": {
+          "value": "3.0",
+          "quote": "Interest Coverage Ratio shall not be less than 3.0"
+        }
+      }
+    }
+  },
+  {
+    "id": "P5",
+    "description": "EUR loan -> escalate (no safe haven)",
+    "pass": true,
+    "got": [
+      "ESCALATE",
+      "OK"
+    ],
+    "expected": [
+      "ESCALATE",
+      "OK"
+    ],
+    "rate_status": "ESCALATE",
+    "rate_detail": "Non-USD loan: s.1.482-2(a) safe haven unavailable; needs benchmarking study",
+    "covenant_status": "OK",
+    "covenant_detail": "leverage 2.50x, ICR 5.33x",
+    "audit": {
+      "text_sha256": "ddafeecd514a2f34",
+      "afr_table": "SYNTHETIC-2026-10",
+      "extracted": {
+        "currency": {
+          "value": "EUR",
+          "quote": "principal amount of EUR"
+        },
+        "fixed_rate": {
+          "value": "0.045",
+          "quote": "fixed rate of 4.5% per annum"
+        },
+        "compounding": {
+          "value": "annually",
+          "quote": "compounded annually"
+        },
+        "term_years": {
+          "value": "2",
+          "quote": "term of 2 years"
+        },
+        "max_leverage": {
+          "value": "4.0",
+          "quote": "Total Debt to EBITDA ratio shall not exceed 4.0"
+        },
+        "min_icr": {
+          "value": "3.0",
+          "quote": "Interest Coverage Ratio shall not be less than 3.0"
+        }
+      }
+    }
+  },
+  {
+    "id": "P6",
+    "description": "Floating SOFR loan -> escalate",
+    "pass": true,
+    "got": [
+      "ESCALATE",
+      "OK"
+    ],
+    "expected": [
+      "ESCALATE",
+      "OK"
+    ],
+    "rate_status": "ESCALATE",
+    "rate_detail": "Floating-rate: fixed AFR comparison not applicable",
+    "covenant_status": "OK",
+    "covenant_detail": "leverage 2.50x, ICR 5.33x",
+    "audit": {
+      "text_sha256": "62f9e16b8b591dbc",
+      "afr_table": "SYNTHETIC-2026-10",
+      "extracted": {
+        "currency": {
+          "value": "USD",
+          "quote": "principal amount of USD"
+        },
+        "floating": {
+          "value": "True",
+          "quote": "SOFR plus 2"
+        },
+        "compounding": {
+          "value": "annually",
+          "quote": "compounded annually"
+        },
+        "term_years": {
+          "value": "4",
+          "quote": "term of 4 years"
+        },
+        "max_leverage": {
+          "value": "4.0",
+          "quote": "Total Debt to EBITDA ratio shall not exceed 4.0"
+        },
+        "min_icr": {
+          "value": "3.0",
+          "quote": "Interest Coverage Ratio shall not be less than 3.0"
+        }
+      }
+    }
+  },
+  {
+    "id": "P7",
+    "description": "Safe-harbor rate but leverage covenant breach",
+    "pass": true,
+    "got": [
+      "SAFE_HARBOR",
+      "BREACH"
+    ],
+    "expected": [
+      "SAFE_HARBOR",
+      "BREACH"
+    ],
+    "rate_status": "SAFE_HARBOR",
+    "rate_detail": "eff=0.050000 bucket=mid AFR=0.0435 ratio=1.1494",
+    "covenant_status": "BREACH",
+    "covenant_detail": "leverage 6.00x > 4.0x",
+    "audit": {
+      "text_sha256": "2120fde45ada83d0",
+      "afr_table": "SYNTHETIC-2026-10",
+      "extracted": {
+        "currency": {
+          "value": "USD",
+          "quote": "principal amount of USD"
+        },
+        "fixed_rate": {
+          "value": "0.05",
+          "quote": "fixed rate of 5.00% per annum"
+        },
+        "compounding": {
+          "value": "annually",
+          "quote": "compounded annually"
+        },
+        "term_years": {
+          "value": "4",
+          "quote": "term of 4 years"
+        },
+        "max_leverage": {
+          "value": "4.0",
+          "quote": "Total Debt to EBITDA ratio shall not exceed 4.0"
+        },
+        "min_icr": {
+          "value": "3.0",
+          "quote": "Interest Coverage Ratio shall not be less than 3.0"
+        }
+      }
+    }
+  },
+  {
+    "id": "F1",
+    "description": "Rate written in words (extractor blind spot)",
+    "pass": false,
+    "got": [
+      "NEEDS_REVIEW",
+      "OK"
+    ],
+    "expected": [
+      "SAFE_HARBOR",
+      "OK"
+    ],
+    "rate_status": "NEEDS_REVIEW",
+    "rate_detail": "Missing rate or term (not extracted)",
+    "covenant_status": "OK",
+    "covenant_detail": "leverage 2.50x, ICR 5.33x",
+    "audit": {
+      "text_sha256": "7d6cf9b61554bc50",
+      "afr_table": "SYNTHETIC-2026-10",
+      "extracted": {
+        "currency": {
+          "value": "USD",
+          "quote": "principal amount of USD"
+        },
+        "compounding": {
+          "value": "annually",
+          "quote": "compounded annually"
+        },
+        "term_years": {
+          "value": "2",
+          "quote": "term of 2 years"
+        },
+        "max_leverage": {
+          "value": "4.0",
+          "quote": "Total Debt to EBITDA ratio shall not exceed 4.0"
+        },
+        "min_icr": {
+          "value": "3.0",
+          "quote": "Interest Coverage Ratio shall not be less than 3.0"
+        }
+      }
+    }
+  },
+  {
+    "id": "F2",
+    "description": "Initial 3y term + 5y borrower extension option (silent mis-bucket)",
+    "pass": false,
+    "got": [
+      "SAFE_HARBOR",
+      "OK"
+    ],
+    "expected": [
+      "BELOW_SAFE_HARBOR",
+      "OK"
+    ],
+    "rate_status": "SAFE_HARBOR",
+    "rate_detail": "eff=0.042000 bucket=short AFR=0.0410 ratio=1.0244",
+    "covenant_status": "OK",
+    "covenant_detail": "leverage 2.50x, ICR 5.33x",
+    "audit": {
+      "text_sha256": "194fcbcf51d6d215",
+      "afr_table": "SYNTHETIC-2026-10",
+      "extracted": {
+        "currency": {
+          "value": "USD",
+          "quote": "principal amount of USD"
+        },
+        "fixed_rate": {
+          "value": "0.042",
+          "quote": "fixed rate of 4.20% per annum"
+        },
+        "compounding": {
+          "value": "annually",
+          "quote": "compounded annually"
+        },
+        "term_years": {
+          "value": "3",
+          "quote": "term of 3 years"
+        },
+        "max_leverage": {
+          "value": "4.0",
+          "quote": "Total Debt to EBITDA ratio shall not exceed 4.0"
+        },
+        "min_icr": {
+          "value": "3.0",
+          "quote": "Interest Coverage Ratio shall not be less than 3.0"
+        }
+      }
+    }
+  },
+  {
+    "id": "F3",
+    "description": "Covenant defined on *Adjusted* EBITDA; engine uses reported EBITDA",
+    "pass": false,
+    "got": [
+      "SAFE_HARBOR",
+      "BREACH"
+    ],
+    "expected": [
+      "SAFE_HARBOR",
+      "OK"
+    ],
+    "rate_status": "SAFE_HARBOR",
+    "rate_detail": "eff=0.048000 bucket=short AFR=0.0410 ratio=1.1707",
+    "covenant_status": "BREACH",
+    "covenant_detail": "leverage 4.50x > 4.0x",
+    "audit": {
+      "text_sha256": "100ecf115e9b2898",
+      "afr_table": "SYNTHETIC-2026-10",
+      "extracted": {
+        "currency": {
+          "value": "USD",
+          "quote": "principal amount of USD"
+        },
+        "fixed_rate": {
+          "value": "0.048",
+          "quote": "fixed rate of 4.80% per annum"
+        },
+        "compounding": {
+          "value": "annually",
+          "quote": "compounded annually"
+        },
+        "term_years": {
+          "value": "2",
+          "quote": "term of 2 years"
+        },
+        "max_leverage": {
+          "value": "4.0",
+          "quote": "Total Debt to Adjusted EBITDA ratio shall not exceed 4.0"
+        }
+      }
+    }
+  }
+]
